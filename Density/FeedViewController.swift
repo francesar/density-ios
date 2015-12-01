@@ -36,7 +36,7 @@ class FeedViewController: UIViewController {
   }
 
   func setupCollectionView() {
-    collectionView.backgroundColor = UIColor.whiteColor()
+    collectionView.backgroundColor = UIColor.lightGrayColor()
     collectionView.dataSource = self
     collectionView.delegate = self
     collectionView.registerNib(UINib(nibName: "FeedViewCell", bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: FeedViewCell.reuseIdentifier)
@@ -78,6 +78,7 @@ class FeedViewController: UIViewController {
   func refreshLocations() {
     fetchData(getAuthorizedLink(), completion: { [weak self] in
       self?.collectionView.reloadData()
+      self?.refreshControl.endRefreshing()
     })
   }
 }
@@ -93,6 +94,10 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout {
     let model: LocationModel = feedData[indexPath.row]
     let cellHeight: CGFloat = FeedViewCell.heightForCell(model)
     return CGSizeMake(self.view.frame.size.width, cellHeight)
+  }
+  
+  func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
+    return 2.0
   }
 }
 

@@ -20,7 +20,7 @@ class FeedViewCell: UICollectionViewCell {
 
   override func awakeFromNib() {
     super.awakeFromNib()
-    // Initialization code
+    setup()
   }
   
   class func heightForCell(model: LocationModel) -> CGFloat {
@@ -40,6 +40,11 @@ class FeedViewCell: UICollectionViewCell {
   func inflate(model: LocationModel) {
     locationName.text = model.name
     capacityIndicator.progress = model.percentFull!
+  }
+  
+  func setup() {
+    // TODO: Set fonts, etc.
+    backgroundColor = UIColor.whiteColor()
   }
 
 }
