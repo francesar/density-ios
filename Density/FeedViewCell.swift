@@ -15,17 +15,19 @@ let feedViewLeftRightPadding: CGFloat = 20.0
 class FeedViewCell: UICollectionViewCell {
   @IBOutlet var locationName: UILabel!
   @IBOutlet var capacityIndicator: UIProgressView!
+  
+  static let reuseIdentifier = "FeedViewCell"
 
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
   }
   
-  class func heightForCell(title: String) -> CGFloat {
+  class func heightForCell(model: LocationModel) -> CGFloat {
     let screenWidth = UIScreen.mainScreen().bounds.size.width
     
     let sampleLocationLabel: UILabel = UILabel(frame: CGRectMake(0, 0, screenWidth - feedViewLeftRightPadding, 0))
-    sampleLocationLabel.text = title
+    sampleLocationLabel.text = model.name
     // TODO: Style this.
     // sampleLocationLabel.font =
     sampleLocationLabel.lineBreakMode = NSLineBreakMode.ByWordWrapping
@@ -33,6 +35,11 @@ class FeedViewCell: UICollectionViewCell {
     sampleLocationLabel.sizeToFit()
     
     return sampleLocationLabel.frame.size.height + feedViewVerticalPadding + feedViewProgressHeight
+  }
+  
+  func inflate(model: LocationModel) {
+    locationName.text = model.name
+    capacityIndicator.progress = model.percentFull!
   }
 
 }

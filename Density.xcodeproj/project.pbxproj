@@ -18,6 +18,7 @@
 		5C76E7451C0E06E4005499EB /* DataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C76E7441C0E06E4005499EB /* DataUtils.swift */; };
 		5CB77BF41C0E0E0900E52996 /* FeedViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB77BF21C0E0E0900E52996 /* FeedViewCell.swift */; };
 		5CB77BF51C0E0E0900E52996 /* FeedViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5CB77BF31C0E0E0900E52996 /* FeedViewCell.xib */; };
+		5CB77BF71C0E102500E52996 /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB77BF61C0E102500E52996 /* LocationModel.swift */; };
 		685355454AB38CD2D8B4D389 /* Pods_Density.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C5400B8F27CB517E9CFB15 /* Pods_Density.framework */; };
 /* End PBXBuildFile section */
 
@@ -58,6 +59,7 @@
 		5C76E7441C0E06E4005499EB /* DataUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataUtils.swift; sourceTree = "<group>"; };
 		5CB77BF21C0E0E0900E52996 /* FeedViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewCell.swift; sourceTree = "<group>"; };
 		5CB77BF31C0E0E0900E52996 /* FeedViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedViewCell.xib; sourceTree = "<group>"; };
+		5CB77BF61C0E102500E52996 /* LocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 		E8D5E16F4F88E21AF8A13227 /* Pods-Density.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Density.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Density/Pods-Density.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,6 +159,7 @@
 			children = (
 				5C76E73A1C0E01BF005499EB /* Constants.swift */,
 				5C76E7441C0E06E4005499EB /* DataUtils.swift */,
+				5CB77BF61C0E102500E52996 /* LocationModel.swift */,
 			);
 			name = Common;
 			sourceTree = "<group>";
@@ -356,6 +359,7 @@
 				5C76E7451C0E06E4005499EB /* DataUtils.swift in Sources */,
 				5CB77BF41C0E0E0900E52996 /* FeedViewCell.swift in Sources */,
 				5C76E7421C0E02B7005499EB /* FeedViewController.swift in Sources */,
+				5CB77BF71C0E102500E52996 /* LocationModel.swift in Sources */,
 				5C76E73B1C0E01BF005499EB /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

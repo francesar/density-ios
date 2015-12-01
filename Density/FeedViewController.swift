@@ -16,7 +16,7 @@ class FeedViewController: UIViewController {
   @IBOutlet var activityIndicator: UIActivityIndicatorView!
   @IBOutlet var overlayView: UIView!
   
-  var feedData: [JSON] = []
+  var feedData: [LocationModel] = []
   var refreshControl: UIRefreshControl!
 
   override func viewDidLoad() {
@@ -24,7 +24,10 @@ class FeedViewController: UIViewController {
     
     // Setup and start loader views
     overlayView.backgroundColor = Colors.LightGrey
+    activityIndicator.hidesWhenStopped = true
     updateLoaderViews(true)
+    
+    setupCollectionView()
     
     fetchData(getAuthorizedLink(), completion: {[weak self] () in
       self?.collectionView.reloadData()
@@ -36,13 +39,12 @@ class FeedViewController: UIViewController {
     collectionView.backgroundColor = UIColor.whiteColor()
     collectionView.dataSource = self
     collectionView.delegate = self
-    // TODO: Register cell.
-    //collectionView.registerNib(UINib(nibName: "StreamItemCell", bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: StreamItemCell.reuseIdentifier)
+    collectionView.registerNib(UINib(nibName: "FeedViewCell", bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: FeedViewCell.reuseIdentifier)
     collectionView.bounces = true
     collectionView.alwaysBounceVertical = true
     
     refreshControl = UIRefreshControl()
-    refreshControl.addTarget(self, action: "refreshStreamItems", forControlEvents: .ValueChanged)
+    refreshControl.addTarget(self, action: "refreshLocations", forControlEvents: .ValueChanged)
     collectionView.addSubview(refreshControl)
   }
   
@@ -60,7 +62,11 @@ class FeedViewController: UIViewController {
       switch response.result {
         case .Success(_):
           let responseData: JSON = JSON(data: response.data!)
-          self.feedData = responseData["data"].array!
+          if let locations = responseData["data"].array {
+            self.feedData = locations.map({ (json: JSON) -> LocationModel in
+              LocationModel(json: json)
+            })
+          }
           completion()
         case .Failure(let error):
           print(error)
@@ -68,24 +74,34 @@ class FeedViewController: UIViewController {
       }
     }
   }
+  
+  func refreshLocations() {
+    fetchData(getAuthorizedLink(), completion: { [weak self] in
+      self?.collectionView.reloadData()
+    })
+  }
 }
 
 extension FeedViewController: UICollectionViewDelegate {
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    // TODO: Implement.
+    // TODO: Think about what we want to do if we select the cell.
   }
 }
 
 extension FeedViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-    // TODO: Implement.
+    let model: LocationModel = feedData[indexPath.row]
+    let cellHeight: CGFloat = FeedViewCell.heightForCell(model)
+    return CGSizeMake(self.view.frame.size.width, cellHeight)
   }
 }
 
 
 extension FeedViewController: UICollectionViewDataSource {
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    // TODO: Implement.
+    let feedViewCell: FeedViewCell = collectionView.dequeueReusableCellWithReuseIdentifier(FeedViewCell.reuseIdentifier, forIndexPath: indexPath) as! FeedViewCell
+    feedViewCell.inflate(feedData[indexPath.row])
+    return feedViewCell
   }
   
   func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
