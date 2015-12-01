@@ -13,9 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
 
-
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-    // Override point for customization after application launch.
+    let feedViewController: FeedViewController = FeedViewController()
+    
+    self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+    if let window = window {
+      self.window!.rootViewController = feedViewController
+      self.window!.makeKeyAndVisible()
+    }
     return true
   }
 

@@ -2,12 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:Density/FeedViewController.swift">
-   </FileRef>
-   <FileRef
-      location = "group:Density/FeedViewController.xib">
-   </FileRef>
-   <FileRef
       location = "group:Density.xcodeproj">
    </FileRef>
    <FileRef
