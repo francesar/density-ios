@@ -17,6 +17,7 @@ class FeedViewController: UIViewController {
   @IBOutlet var overlayView: UIView!
   
   var feedData: [LocationModel] = []
+  var libraryMapping: Dictionary<String,[LocationModel]> = Dictionary()
   var refreshControl: UIRefreshControl!
 
   override func viewDidLoad() {
@@ -27,16 +28,32 @@ class FeedViewController: UIViewController {
     activityIndicator.hidesWhenStopped = true
     updateLoaderViews(true)
     
-    setupCollectionView()
+    setupViews()
     
     fetchData(getAuthorizedLink(), completion: {[weak self] () in
       self?.collectionView.reloadData()
       self?.updateLoaderViews(true)
     })
   }
+  
+  func setupViews() {
+    // Set color/title on the navigation bar
+    self.navigationController?.navigationBar.barTintColor = Colors.Blue
+
+    // Set the center logo
+    let navImage = UIImageView(frame: TitleImageFrame)
+    navImage.image = UIImage(named: "density-logo.png")!
+    let imageView = UIImageView(frame: TitleImageFrame)
+    imageView.addSubview(navImage)
+    self.navigationItem.titleView = imageView
+    
+    print(UIFont.fontNamesForFamilyName("Lato"))
+
+    setupCollectionView()
+  }
 
   func setupCollectionView() {
-    collectionView.backgroundColor = UIColor.lightGrayColor()
+    collectionView.backgroundColor = Colors.LightGrey
     collectionView.dataSource = self
     collectionView.delegate = self
     collectionView.registerNib(UINib(nibName: "FeedViewCell", bundle: NSBundle.mainBundle()), forCellWithReuseIdentifier: FeedViewCell.reuseIdentifier)
@@ -63,9 +80,12 @@ class FeedViewController: UIViewController {
         case .Success(_):
           let responseData: JSON = JSON(data: response.data!)
           if let locations = responseData["data"].array {
-            self.feedData = locations.map({ (json: JSON) -> LocationModel in
+            let remoteData = locations.map({ (json: JSON) -> LocationModel in
               LocationModel(json: json)
             })
+            let (libraryList, libraryMapping) = processMapping(remoteData)
+            self.feedData = libraryList
+            self.libraryMapping = libraryMapping
           }
           completion()
         case .Failure(let error):
@@ -81,11 +101,29 @@ class FeedViewController: UIViewController {
       self?.refreshControl.endRefreshing()
     })
   }
+  
+  func collapseLibraryCells(selectedLocationName: String, index: Int) {
+    let numberOfFloors = libraryMapping[selectedLocationName]!.count
+    let begin = index+1
+    feedData.removeRange(begin...begin+numberOfFloors-1)
+  }
 }
 
 extension FeedViewController: UICollectionViewDelegate {
   func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-    // TODO: Think about what we want to do if we select the cell.
+    let selectedLocation = feedData[indexPath.row]
+    if selectedLocation.isMultiFloor {
+      if selectedLocation.selected {
+        collapseLibraryCells(selectedLocation.name!, index: indexPath.row)
+        selectedLocation.selected = false
+        collectionView.reloadData()
+      } else {
+        print("Should be expanding")
+        feedData.insertContentsOf(libraryMapping[selectedLocation.name!]!, at: indexPath.row + 1)
+        selectedLocation.selected = true
+        collectionView.reloadData()
+      }
+    }
   }
 }
 
@@ -97,7 +135,7 @@ extension FeedViewController: UICollectionViewDelegateFlowLayout {
   }
   
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-    return 2.0
+    return 5.0
   }
 }
 

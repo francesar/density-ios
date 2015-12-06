@@ -17,3 +17,48 @@ func urlAction() -> String {
   // TODO: Probably change this - we likely don't always want latest
   return "latest"
 }
+
+func processMapping(locationData: [LocationModel]) -> ([LocationModel], Dictionary<String,[LocationModel]>) {
+  var locationMapping: Dictionary<String,[LocationModel]> = Dictionary()
+  var locationList: [LocationModel] = []
+  
+  // Gotta calculate frequencies for libraries first, a little inconvenient.
+  var locationFrequency: Dictionary<String, (Int, Float)> = Dictionary()
+  for location in locationData {
+    let locationArr: [String] = location.name!.componentsSeparatedByString(" ")
+    if Int(locationArr.last!) != nil || locationArr.last! == "stk" {
+      let libraryName = locationArr[0...locationArr.count-2].joinWithSeparator(" ")
+      if let (currentCount, currentFreq) = locationFrequency[libraryName] {
+        let percent = location.percentFull! > 1.0 ? 1.0 : location.percentFull!
+        locationFrequency[libraryName] = (currentCount + 1, currentFreq + percent)
+      } else {
+        locationFrequency[libraryName] = (1, location.percentFull!)
+      }
+    }
+  }
+
+  // Then, go through and divide into libraries
+  for location in locationData {
+    let locationArr: [String] = location.name!.componentsSeparatedByString(" ")
+    if Int(locationArr.last!) != nil || locationArr.last! == "stk" {
+      let libraryName = locationArr[0...locationArr.count-2].joinWithSeparator(" ")
+      if var _ = locationMapping[libraryName] {
+        locationMapping[libraryName]! += [location]
+      } else {
+        locationMapping[libraryName] = [location]
+        let (count, capacity) = locationFrequency[libraryName]!
+        print(libraryName + " " + String(count) + " " + String(capacity))
+        locationList.append(LocationModel(name: libraryName, capacity: (capacity / Float(count))))
+      }
+
+      // TODO: Don't hard-code this. It seems ill-advised to do so.
+      if locationArr.last! == "stk" {
+        location.name = libraryName + " Stacks"
+      }
+    } else {
+      locationList.append(location)
+    }
+  }
+  
+  return (locationList, locationMapping)
+}

@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="vVS-TA-miQ">
-                    <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <animations/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tCt-hM-g5J">
                         <size key="itemSize" width="50" height="50"/>
@@ -29,11 +29,11 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="dvv-Cq-5RM">
-                    <rect key="frame" x="290" y="300" width="20" height="20"/>
+                    <rect key="frame" x="290" y="290" width="20" height="20"/>
                     <animations/>
                 </activityIndicatorView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7NG-ec-zKQ">
-                    <rect key="frame" x="0.0" y="20" width="600" height="580"/>
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
@@ -42,11 +42,11 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="vVS-TA-miQ" secondAttribute="bottom" id="0Pq-hZ-Nnz"/>
-                <constraint firstItem="vVS-TA-miQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="BOn-to-u10"/>
+                <constraint firstItem="vVS-TA-miQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="BOn-to-u10"/>
                 <constraint firstItem="dvv-Cq-5RM" firstAttribute="centerX" secondItem="vVS-TA-miQ" secondAttribute="centerX" id="OQE-N8-VVv"/>
                 <constraint firstAttribute="trailing" secondItem="7NG-ec-zKQ" secondAttribute="trailing" id="VtF-uw-CJC"/>
                 <constraint firstItem="7NG-ec-zKQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="beg-FQ-z2w"/>
-                <constraint firstItem="7NG-ec-zKQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="d5R-1s-e6t"/>
+                <constraint firstItem="7NG-ec-zKQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="d5R-1s-e6t"/>
                 <constraint firstAttribute="bottom" secondItem="7NG-ec-zKQ" secondAttribute="bottom" id="dPe-dT-i4p"/>
                 <constraint firstAttribute="trailing" secondItem="vVS-TA-miQ" secondAttribute="trailing" id="gZB-cv-7y4"/>
                 <constraint firstItem="vVS-TA-miQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ugZ-Vb-0YJ"/>

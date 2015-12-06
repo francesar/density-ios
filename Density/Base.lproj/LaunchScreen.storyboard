@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -16,8 +18,37 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="oLR-Zo-Gtb">
+                                <rect key="frame" x="50" y="241.5" width="500" height="117"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="oLR-Zo-Gtb" secondAttribute="height" multiplier="462:108" id="DnK-rm-boa"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="nJU-a9-rze"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="nJU-a9-rze"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                        </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.13333333333333333" green="0.5607843137254902" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="oLR-Zo-Gtb" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="2:5" id="7gS-hB-0iB"/>
+                            <constraint firstItem="oLR-Zo-Gtb" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="G5i-Xb-aMt"/>
+                            <constraint firstItem="oLR-Zo-Gtb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="aWm-Oc-Cpd"/>
+                            <constraint firstItem="oLR-Zo-Gtb" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="hb9-3h-RUx"/>
+                            <constraint firstItem="oLR-Zo-Gtb" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="30" id="kJc-d3-nsc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="oLR-Zo-Gtb" secondAttribute="trailing" constant="30" id="tWZ-o7-BSk"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="7gS-hB-0iB"/>
+                                <exclude reference="hb9-3h-RUx"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -25,4 +56,7 @@
             <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="launch-logo.png" width="462" height="108"/>
+    </resources>
 </document>

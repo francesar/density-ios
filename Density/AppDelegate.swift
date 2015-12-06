@@ -15,10 +15,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
     let feedViewController: FeedViewController = FeedViewController()
+    let navController: UINavigationController = UINavigationController(rootViewController: feedViewController)
+    UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
     
     self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
     if let window = window {
-      self.window!.rootViewController = feedViewController
+      self.window!.rootViewController = navController
       self.window!.makeKeyAndVisible()
     }
     return true
