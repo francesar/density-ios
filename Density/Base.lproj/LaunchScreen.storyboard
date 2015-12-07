@@ -19,11 +19,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch-logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="oLR-Zo-Gtb">
-                                <rect key="frame" x="50" y="241.5" width="500" height="117"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launch-logo-final.png" translatesAutoresizingMaskIntoConstraints="NO" id="oLR-Zo-Gtb">
+                                <rect key="frame" x="50" y="230" width="500" height="140"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="oLR-Zo-Gtb" secondAttribute="height" multiplier="462:108" id="DnK-rm-boa"/>
+                                    <constraint firstAttribute="width" secondItem="oLR-Zo-Gtb" secondAttribute="height" multiplier="600:168" id="DnK-rm-boa"/>
                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="400" id="nJU-a9-rze"/>
                                 </constraints>
                                 <variation key="default">
@@ -57,6 +57,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="launch-logo.png" width="462" height="108"/>
+        <image name="launch-logo-final.png" width="600" height="168"/>
     </resources>
 </document>

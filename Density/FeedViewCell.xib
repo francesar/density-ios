@@ -24,21 +24,21 @@
                         <animations/>
                     </progressView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OxZ-0X-4YI">
-                        <rect key="frame" x="10" y="20" width="327" height="54"/>
+                        <rect key="frame" x="10" y="10" width="327" height="64"/>
                         <animations/>
                         <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="18"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T68-pz-ilc">
-                        <rect key="frame" x="362" y="20" width="42" height="54"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T68-pz-ilc">
+                        <rect key="frame" x="362" y="10" width="42" height="64"/>
                         <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Jc-ek-7LB">
-                        <rect key="frame" x="374" y="38" width="18" height="18"/>
+                        <rect key="frame" x="374" y="33" width="18" height="18"/>
                         <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="18" id="49y-Nt-GEe"/>
@@ -53,7 +53,8 @@
             <animations/>
             <constraints>
                 <constraint firstItem="T68-pz-ilc" firstAttribute="bottom" secondItem="OxZ-0X-4YI" secondAttribute="bottom" id="Alb-KH-Wsf"/>
-                <constraint firstItem="OxZ-0X-4YI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="20" id="FyF-GH-Vjt"/>
+                <constraint firstItem="OxZ-0X-4YI" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="EOE-54-SdF"/>
+                <constraint firstItem="OxZ-0X-4YI" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="FyF-GH-Vjt"/>
                 <constraint firstAttribute="trailing" secondItem="Cqe-Ni-LTd" secondAttribute="trailing" constant="10" id="JsF-1p-tbn"/>
                 <constraint firstItem="Cqe-Ni-LTd" firstAttribute="top" secondItem="OxZ-0X-4YI" secondAttribute="bottom" constant="10" id="N2J-A7-P8m"/>
                 <constraint firstItem="1Jc-ek-7LB" firstAttribute="centerY" secondItem="OxZ-0X-4YI" secondAttribute="centerY" id="RPQ-EE-ZS2"/>
@@ -76,21 +77,26 @@
             <size key="customSize" width="414" height="106"/>
             <variation key="default">
                 <mask key="constraints">
+                    <exclude reference="c2L-kQ-yJH"/>
                     <exclude reference="qhy-4c-BwR"/>
                     <exclude reference="N2J-A7-P8m"/>
+                    <exclude reference="lcd-I8-tja"/>
                     <exclude reference="WJq-CF-i4V"/>
                     <exclude reference="bVg-vY-qs6"/>
                     <exclude reference="i7K-uw-hp8"/>
                     <exclude reference="nzK-we-N1a"/>
                     <exclude reference="oAW-zE-jGo"/>
-                    <exclude reference="lcd-I8-tja"/>
                 </mask>
             </variation>
             <connections>
                 <outlet property="capacityIndicator" destination="Cqe-Ni-LTd" id="yHl-Ao-ikU"/>
+                <outlet property="capacityIndicatorBottomPaddingConstraint" destination="vdD-7X-wc6" id="MAa-L9-xWa"/>
                 <outlet property="capacityLabel" destination="T68-pz-ilc" id="3gy-vJ-E3L"/>
                 <outlet property="expandIcon" destination="1Jc-ek-7LB" id="Ujf-4x-nc2"/>
                 <outlet property="locationName" destination="OxZ-0X-4YI" id="634-h4-SnC"/>
+                <outlet property="locationNameBottomPadding" destination="ZEH-FX-5oF" id="NaT-Rh-Xyb"/>
+                <outlet property="locationNameLeftConstraint" destination="EOE-54-SdF" id="6Ml-QK-d3l"/>
+                <outlet property="locationNameTopPaddingConstraint" destination="FyF-GH-Vjt" id="SIN-W8-aOn"/>
             </connections>
             <point key="canvasLocation" x="285" y="237"/>
         </collectionViewCell>

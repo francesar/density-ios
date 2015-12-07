@@ -43,17 +43,28 @@ func processMapping(locationData: [LocationModel]) -> ([LocationModel], Dictiona
     if Int(locationArr.last!) != nil || locationArr.last! == "stk" {
       let libraryName = locationArr[0...locationArr.count-2].joinWithSeparator(" ")
       if var _ = locationMapping[libraryName] {
+        if Int(locationArr.last!) != 301 {
+          location.name = "Floor " + locationArr.last!
+        } else {
+          location.name = "Reference Room"
+        }
+        location.isFloor = true
         locationMapping[libraryName]! += [location]
       } else {
+        if Int(locationArr.last!) != 301 {
+          location.name = "Floor " + locationArr.last!
+        } else {
+          location.name = "Reference Room"
+        }
+        location.isFloor = true
         locationMapping[libraryName] = [location]
         let (count, capacity) = locationFrequency[libraryName]!
-        print(libraryName + " " + String(count) + " " + String(capacity))
         locationList.append(LocationModel(name: libraryName, capacity: (capacity / Float(count))))
       }
 
       // TODO: Don't hard-code this. It seems ill-advised to do so.
       if locationArr.last! == "stk" {
-        location.name = libraryName + " Stacks"
+        location.name = "Stacks"
       }
     } else {
       locationList.append(location)

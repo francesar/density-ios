@@ -46,8 +46,6 @@ class FeedViewController: UIViewController {
     let imageView = UIImageView(frame: TitleImageFrame)
     imageView.addSubview(navImage)
     self.navigationItem.titleView = imageView
-    
-    print(UIFont.fontNamesForFamilyName("Lato"))
 
     setupCollectionView()
   }
@@ -118,7 +116,6 @@ extension FeedViewController: UICollectionViewDelegate {
         selectedLocation.selected = false
         collectionView.reloadData()
       } else {
-        print("Should be expanding")
         feedData.insertContentsOf(libraryMapping[selectedLocation.name!]!, at: indexPath.row + 1)
         selectedLocation.selected = true
         collectionView.reloadData()
@@ -130,12 +127,12 @@ extension FeedViewController: UICollectionViewDelegate {
 extension FeedViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
     let model: LocationModel = feedData[indexPath.row]
-    let cellHeight: CGFloat = FeedViewCell.heightForCell(model)
+    var cellHeight: CGFloat = FeedViewCell.heightForCell(model)
     return CGSizeMake(self.view.frame.size.width, cellHeight)
   }
   
   func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-    return 5.0
+    return 3.0
   }
 }
 

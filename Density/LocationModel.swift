@@ -14,6 +14,7 @@ class LocationModel {
   var percentFull: Float? = 0.0
   var isMultiFloor: Bool = false
   var selected: Bool = false
+  var isFloor: Bool = false
   
   init(json: JSON) {
     name = json["group_name"].string

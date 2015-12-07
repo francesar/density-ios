@@ -22,7 +22,7 @@
 		5CB77BFD1C14BC5F00E52996 /* density-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CB77BFC1C14BC5F00E52996 /* density-logo.png */; };
 		5CB77C001C14BEA100E52996 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CB77BFE1C14BE5B00E52996 /* Lato-Light.ttf */; };
 		5CB77C011C14BEA800E52996 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5CB77BFF1C14BE6700E52996 /* Lato-Regular.ttf */; };
-		5CB77C031C14DAF200E52996 /* launch-logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CB77C021C14DAF100E52996 /* launch-logo.png */; };
+		5CB77C051C151D4400E52996 /* launch-logo-final.png in Resources */ = {isa = PBXBuildFile; fileRef = 5CB77C041C151D4400E52996 /* launch-logo-final.png */; };
 		685355454AB38CD2D8B4D389 /* Pods_Density.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37C5400B8F27CB517E9CFB15 /* Pods_Density.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,7 +67,7 @@
 		5CB77BFC1C14BC5F00E52996 /* density-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "density-logo.png"; sourceTree = "<group>"; };
 		5CB77BFE1C14BE5B00E52996 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		5CB77BFF1C14BE6700E52996 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
-		5CB77C021C14DAF100E52996 /* launch-logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-logo.png"; sourceTree = "<group>"; };
+		5CB77C041C151D4400E52996 /* launch-logo-final.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch-logo-final.png"; sourceTree = "<group>"; };
 		E8D5E16F4F88E21AF8A13227 /* Pods-Density.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Density.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Density/Pods-Density.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,7 +165,7 @@
 		5C76E7391C0E01B0005499EB /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				5CB77C021C14DAF100E52996 /* launch-logo.png */,
+				5CB77C041C151D4400E52996 /* launch-logo-final.png */,
 				5CB77BFE1C14BE5B00E52996 /* Lato-Light.ttf */,
 				5CB77BFF1C14BE6700E52996 /* Lato-Regular.ttf */,
 				5CB77BFC1C14BC5F00E52996 /* density-logo.png */,
@@ -291,10 +291,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CB77C051C151D4400E52996 /* launch-logo-final.png in Resources */,
 				5CB77C011C14BEA800E52996 /* Lato-Regular.ttf in Resources */,
 				5CB77C001C14BEA100E52996 /* Lato-Light.ttf in Resources */,
 				5CB77BF51C0E0E0900E52996 /* FeedViewCell.xib in Resources */,
-				5CB77C031C14DAF200E52996 /* launch-logo.png in Resources */,
 				5CB77BFD1C14BC5F00E52996 /* density-logo.png in Resources */,
 				5C375A031C0DFF690088B4FE /* LaunchScreen.storyboard in Resources */,
 				5C76E7431C0E02B7005499EB /* FeedViewController.xib in Resources */,
